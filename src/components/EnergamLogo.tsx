@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
-import logo from "@/assets/energramlogo.png";
+import logo from "@/assets/energramlogo3.png";
 
 interface EnergamLogoProps {
   className?: string;
