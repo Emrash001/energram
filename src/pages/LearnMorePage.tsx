@@ -741,10 +741,7 @@ const LearnMorePage = () => {
         </section>
         
         {/* Product Photos Section (Placeholder) */}
-        <section 
-          ref={photoSectionRef}
-          className="container mx-auto px-4 py-12 opacity-0 translate-y-10 transition-all duration-1000"
-        >
+        <section id="photos" ref={photoSectionRef} className="container mx-auto px-4 py-12 opacity-0 translate-y-10 transition-all duration-1000">
           <div className="max-w-5xl mx-auto mb-12">
             <h2 className="text-3xl font-display font-bold text-center mb-4">
               Energram <span className="text-gradient">Photo Gallery</span>

@@ -1,6 +1,7 @@
 
 import { useEffect } from "react";
 import HeroSection from "../components/HeroSection";
+import GallerySpotlight from "../components/GallerySpotlight";
 import TechnologySection from "../components/TechnologySection";
 import ImpactSection from "../components/ImpactSection";
 import AppSection from "../components/AppSection";
@@ -17,6 +18,7 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <main>
         <HeroSection />
+        <GallerySpotlight />
         <TechnologySection />
         <ImpactSection />
         <AppSection />
