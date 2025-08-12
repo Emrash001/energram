@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 import img1 from "@/assets/energram_pro1.jpg"
 import img2 from "@/assets/energram_pro2.jpg"
@@ -26,21 +27,32 @@ export default function GallerySpotlight() {
           </p>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-6xl mx-auto">
-          {images.map((img, i) => (
-            <figure key={i} className={`group overflow-hidden rounded-2xl border bg-card shadow-sm hover:shadow-md transition-all hover-scale ${i === 1 ? 'sm:translate-y-4' : ''}`}>
-              <AspectRatio ratio={4 / 3}>
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover"
-                />
-              </AspectRatio>
-              <figcaption className="sr-only">{img.alt}</figcaption>
-            </figure>
-          ))}
+        <div className="mt-8 relative">
+          <Carousel opts={{ align: "center", loop: true }} className="w-full max-w-6xl mx-auto">
+            <CarouselContent className="mask-fade-out">
+              {images.map((img, i) => (
+                <CarouselItem key={i} className="basis-[85%] sm:basis-1/2 lg:basis-2/5 xl:basis-1/3 pl-4">
+                  <figure className="group relative overflow-hidden rounded-3xl border bg-card/80 backdrop-blur-md shadow-lg ring-1 ring-border hover:ring-primary/40 transition-transform duration-300 hover:scale-[1.02]">
+                    <AspectRatio ratio={4 / 3}>
+                      <div className="flex h-full w-full items-center justify-center bg-muted">
+                        <img
+                          src={img.src}
+                          alt={img.alt}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full object-contain device-glow"
+                        />
+                      </div>
+                    </AspectRatio>
+                    <figcaption className="sr-only">{img.alt}</figcaption>
+                    <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-background/0 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </figure>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2" />
+            <CarouselNext className="right-2" />
+          </Carousel>
         </div>
 
         <div className="mt-8 flex justify-center">
