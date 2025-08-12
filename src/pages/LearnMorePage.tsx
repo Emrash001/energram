@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BackButton from "@/components/BackButton";
-import { useToast } from "@/hooks/use-toast";
+import ProductGallery from "@/components/ProductGallery";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   Battery, 
@@ -47,7 +47,6 @@ const FeatureCard = ({ icon: Icon, title, description }: FeatureCardProps) => (
 );
 
 const LearnMorePage = () => {
-  const { toast } = useToast();
   const photoSectionRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   
@@ -74,13 +73,6 @@ const LearnMorePage = () => {
     return () => observer.disconnect();
   }, []);
 
-  const notifyPhotosComingSoon = () => {
-    toast({
-      title: "Coming Soon",
-      description: "Product photos will be available once the hardware prototype is finalized.",
-      variant: "default"
-    });
-  };
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-background to-muted/30">
@@ -762,31 +754,8 @@ const LearnMorePage = () => {
             </p>
           </div>
           
-          {/* Photo Gallery Placeholder */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div 
-                key={item}
-                onClick={notifyPhotosComingSoon}
-                className="aspect-square bg-gradient-to-br from-tech-500/10 to-solar-500/10 rounded-xl border border-foreground/10 shadow-sm hover:shadow-md transition-all flex items-center justify-center cursor-pointer group"
-              >
-                <div className="text-center p-6">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-tech-500/20 to-solar-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M23 19C23 19.5304 22.7893 20.0391 22.4142 20.4142C22.0391 20.7893 21.5304 21 21 21H3C2.46957 21 1.96086 20.7893 1.58579 20.4142C1.21071 20.0391 1 19.5304 1 19V8C1 7.46957 1.21071 6.96086 1.58579 6.58579C1.96086 6.21071 2.46957 6 3 6H7L9 3H15L17 6H21C21.5304 6 22.0391 6.21071 22.4142 6.58579C22.7893 6.96086 23 7.46957 23 8V19Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M12 17C14.2091 17 16 15.2091 16 13C16 10.7909 14.2091 9 12 9C9.79086 9 8 10.7909 8 13C8 15.2091 9.79086 17 12 17Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <p className="text-foreground/80 font-medium group-hover:text-foreground transition-colors">
-                    Product Photos Coming Soon
-                  </p>
-                  <p className="text-sm text-foreground/60 mt-2">
-                    Currently in final prototyping phase
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Product Photo Gallery */}
+          <ProductGallery className="max-w-5xl mx-auto" />
         </section>
         
         {/* FAQ Section */}
