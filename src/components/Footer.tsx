@@ -124,7 +124,7 @@ const Footer = () => {
         <div className="mt-16 pt-8 border-t border-border/50">
           <div className="flex flex-col md:flex-row justify-between gap-4">
             <p className="text-sm text-foreground/60">
-              &copy; {new Date().getFullYear()} Energram Technologies Ltd. All rights reserved.
+              &copy; {new Date().getFullYear()} Energram Production Ltd. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-foreground/60">
               <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
